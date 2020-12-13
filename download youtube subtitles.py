@@ -2,6 +2,7 @@ from youtube_transcript_api import YouTubeTranscriptApi
 import json
 import os, sys
 
+
 def convert_ts_hms(ts):
     h = int(ts / 3600)
     m = int((ts % 3600) / 60)
@@ -23,8 +24,7 @@ def create_srt_from_info(video_info):
     save_dir = os.path.join(os.getcwd(), "result")
 
     if not os.path.exists(save_dir):
-    	os.makedirs(save_dir)
-
+        os.makedirs(save_dir)
 
     srt_fname = os.path.join(save_dir, f"{title}.srt")
 
@@ -50,7 +50,7 @@ def create_srt_from_info(video_info):
 
         txt = row['text']
 
-        row_str = [str(i+1), " --> ".join([ts_str1, ts_str2]), txt]
+        row_str = [str(i + 1), " --> ".join([ts_str1, ts_str2]), txt]
 
         full_rows.append("\n".join(row_str))
 
